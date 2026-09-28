@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sabbatical</title>
+  <meta name="description" content="Long-stay travel packages for people taking one to six months away. Furnished homes, local hosts and everything set up before you land.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Sabbatical</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#packages">Packages</a>
+        <a href="#packages" id="saved-link">Saved<span class="saved-count" id="saved-count" hidden>0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Long-stay travel packages</span>
+          <h1>Take the months you've been putting off.</h1>
+          <p class="lede">A furnished home, a local host and the boring parts already sorted: SIM, transport, a desk that works. Stay one month or six, in nine places we know well.</p>
+          <div class="hero-actions">
+            <a class="btn btn-accent" href="#packages">Browse packages</a>
+            <a class="btn btn-ghost" href="#how">How it works</a>
+          </div>
+        </div>
+        <div class="hero-stats" aria-label="At a glance">
+          <div class="stat"><strong id="stat-count">9</strong><span>destinations</span></div>
+          <div class="stat"><strong>1 to 6</strong><span>months per stay</span></div>
+          <div class="stat"><strong>18%</strong><span>off six-month stays</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>Three steps, then you pack.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>Pick a place and a length</h3>
+            <p>Every package has a fixed home, a host and a set of inclusions. Choose one to six months and see the price change as you go.</p>
+          </li>
+          <li>
+            <h3>Send an inquiry</h3>
+            <p>Tell us when you'd like to arrive and who's coming. A host replies within two working days to confirm dates and answer questions.</p>
+          </li>
+          <li>
+            <h3>Land and settle in</h3>
+            <p>Airport pickup, keys, a stocked kitchen and a walk around the neighbourhood in your first week. The rest of the stay is yours.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="catalog" id="packages">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Packages</h2>
+          <p>Prices are per person per month before long-stay discounts.</p>
+        </div>
+
+        <form class="filters" id="filters" role="search" aria-label="Filter packages">
+          <div class="field">
+            <label for="q">Search</label>
+            <input type="search" id="q" name="q" placeholder="City, country or keyword" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="region">Region</label>
+            <select id="region" name="region">
+              <option value="">Anywhere</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="months">Stay length</label>
+            <select id="months" name="months">
+              <option value="">Any length</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">Max per month <output for="budget" id="budget-out"></output></label>
+            <input type="range" id="budget" name="budget" min="1000" max="4500" step="100" value="4500">
+          </div>
+          <div class="field">
+            <label for="sort">Sort</label>
+            <select id="sort" name="sort">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="name">Name</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="chips" id="vibes" role="group" aria-label="Filter by vibe"></div>
+
+        <div class="results-meta">
+          <span id="results-count" aria-live="polite"></span>
+          <button type="button" id="clear-filters">Clear filters</button>
+        </div>
+
+        <div class="grid" id="results"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Sabbatical. Long stays, well hosted.</span>
+      <span>Prices in EUR. Inquiries are free and non-binding.</span>
+    </div>
+  </footer>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

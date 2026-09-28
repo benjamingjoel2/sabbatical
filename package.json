@@ -1,0 +1,15 @@
+{
+  "name": "sabbatical",
+  "version": "0.1.0",
+  "description": "Sabbatical — long-stay travel packages for people taking one to six months away.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
