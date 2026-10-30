@@ -30,6 +30,8 @@ Node 20 or newer is needed for the tests.
 | `src/pricing.js` | Pure pricing functions shared by the browser and the tests. |
 | `src/ui.js` | Small DOM helper and localStorage helpers for saved packages. |
 | `src/styles.css` | Shared styles with light and dark themes. |
+| `privacy.html`, `terms.html`, `cookies.html` | Privacy policy, booking terms and cookie policy (complete; have a lawyer review them before launch). |
+| `src/fonts/` | Self-hosted Fraunces and Inter (SIL OFL). |
 | `test/pricing.test.js` | Unit tests for pricing rules and catalog integrity. |
 
 ## Pricing rules
@@ -59,3 +61,13 @@ every package has a unique id, a positive price, a valid stay range, at least
 one vibe, a two-colour palette, three or more itinerary phases and valid best
 months. Set `includedAddons` to the ids of any add-ons the base price already
 covers.
+
+## Contact and business details
+
+Email: `sabbatical@tourground.com`. Business address (owner-approved coworking arrangement): Second Home Lisboa, Mercado da Ribeira, Avenida 24 de Julho 49, 1200-479 Lisboa, Portugal. Both appear in the footer, the legal pages and the JSON-LD on the home page. By owner decision the site shows no phone, WhatsApp, social links, licence numbers or testimonials.
+
+## Before launch
+
+- Wire the inquiry form to a real inbox or CRM (it only stores inquiries in the visitor's browser today).
+- Have a lawyer review the privacy policy, booking terms and cookie policy.
+- Confirm the Second Home Lisboa street number (OpenStreetMap gives 49; some listings use 50).

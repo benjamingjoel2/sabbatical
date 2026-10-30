@@ -100,11 +100,11 @@ function card(pkg, saved) {
       el("p", { class: "card-tagline", text: pkg.tagline }),
       el("div", { class: "card-foot" }, [
         el("div", { class: "price" }, [
-          formatPrice(pkg.pricePerMonth),
+          `From ${formatPrice(pkg.pricePerMonth)}`,
           el("small", {
             text:
               pkg.maxMonths > 1
-                ? `per month, from ${formatPrice(fromPrice(pkg))} on ${pkg.maxMonths}-month stays`
+                ? `per month, or from ${formatPrice(fromPrice(pkg))} on ${pkg.maxMonths}-month stays`
                 : "per month",
           }),
         ]),

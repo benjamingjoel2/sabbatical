@@ -127,7 +127,7 @@ function bookingPanel(pkg, saved) {
     el("div", { style: { display: "flex", "justify-content": "space-between", "align-items": "center", gap: "12px" } }, [
       el("div", {}, [
         el("h2", { text: "Plan your stay" }),
-        el("p", { class: "from", text: `${formatPrice(pkg.pricePerMonth)} per person per month` }),
+        el("p", { class: "from", text: `From ${formatPrice(pkg.pricePerMonth)} per person per month` }),
       ]),
       savedToggle,
     ]),
