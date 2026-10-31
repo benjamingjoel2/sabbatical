@@ -20,6 +20,14 @@ npm test         # runs the pricing and catalog tests with node:test
 Any static file server works; there is nothing to build and no `npm install`.
 Node 20 or newer is needed for the tests.
 
+## Languages
+
+English (default) at the root, French in `fr/`, German in `de/`, Spanish in `es/`. Each language is pre-rendered: `fr/package.html` loads `src/package.fr.js`, which imports `src/data/packages.fr.js` and so on. No translation library runs in the browser, and prices are formatted for the page language.
+
+- Translations live in `i18n/{fr,de,es}.json` as `{ "English text": "translation" }`. Sentences with numbers use `{placeholders}` (see `fill()` in `src/ui.js`) so each one is translated whole.
+- After changing copy in the HTML pages or `src/`, run `node scripts/i18n.mjs check`: it rebuilds the language folders, the `*.fr.js`/`*.de.js`/`*.es.js` modules and the sitemap, and fails if a string has no translation.
+- The EN · FR · DE · ES switch sits in the header and links to the same page in the other language.
+
 ## What's in it
 
 | Path | Purpose |

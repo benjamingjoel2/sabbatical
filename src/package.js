@@ -1,6 +1,6 @@
 import { getPackage, REGIONS, VIBES, ADDONS } from "./data/packages.js";
 import { quote, formatPrice, fromPrice, discountRateFor, MAX_TRAVELLERS } from "./pricing.js";
-import { el, loadSaved, saveButton, updateSavedBadge, vibeLabel } from "./ui.js";
+import { el, fill, loadSaved, saveButton, updateSavedBadge, vibeLabel } from "./ui.js";
 
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const INQUIRY_KEY = "sabbatical.inquiries";
@@ -49,7 +49,7 @@ function renderPackage(pkg) {
         el("p", { class: "summary", text: pkg.summary }),
         el("ul", { class: "facts" }, [
           fact("Home", pkg.accommodation),
-          fact("Stay length", pkg.minMonths === pkg.maxMonths ? `${pkg.minMonths} months` : `${pkg.minMonths} to ${pkg.maxMonths} months`),
+          fact("Stay length", pkg.minMonths === pkg.maxMonths ? fill("{n} months", { n: pkg.minMonths }) : fill("{a} to {b} months", { a: pkg.minMonths, b: pkg.maxMonths })),
           fact("From", `${formatPrice(fromPrice(pkg))} per person per month`),
           fact("Good for", pkg.vibes.map((v) => vibeLabel(VIBES, v)).join(", ")),
         ]),
@@ -97,7 +97,7 @@ function bookingPanel(pkg, saved) {
 
   const monthsSelect = el("select", { id: "months", name: "months" }, monthChoices.map((m) => {
     const rate = discountRateFor(m);
-    const label = `${m} ${m === 1 ? "month" : "months"}${rate ? ` (${Math.round(rate * 100)}% off)` : ""}`;
+    const label = rate ? fill("{n} months ({pct}% off)", { n: m, pct: Math.round(rate * 100) }) : fill(m === 1 ? "{n} month" : "{n} months", { n: m });
     return el("option", { value: String(m), text: label });
   }));
   const defaultMonths = monthChoices.includes(3) ? 3 : monthChoices[0];
@@ -105,7 +105,7 @@ function bookingPanel(pkg, saved) {
 
   const travellersSelect = el("select", { id: "travellers", name: "travellers" },
     Array.from({ length: MAX_TRAVELLERS }, (_, i) => i + 1).map((n) =>
-      el("option", { value: String(n), text: `${n} ${n === 1 ? "traveller" : "travellers"}` }),
+      el("option", { value: String(n), text: fill(n === 1 ? "{n} traveller" : "{n} travellers", { n }) }),
     ),
   );
 
@@ -221,8 +221,14 @@ function inquirySection(pkg, getSelection) {
   function updateSummary() {
     const sel = getSelection();
     const q = quote(pkg, sel);
-    const addonText = sel.addons.length ? ` with ${sel.addons.map((a) => a.label.toLowerCase()).join(", ")}` : "";
-    summary.textContent = `${sel.months} ${sel.months === 1 ? "month" : "months"} in ${pkg.destination} for ${sel.travellers} ${sel.travellers === 1 ? "traveller" : "travellers"}${addonText}: ${formatPrice(q.total)} in total.`;
+    const values = {
+      months: fill(sel.months === 1 ? "{n} month" : "{n} months", { n: sel.months }),
+      place: pkg.destination,
+      travellers: fill(sel.travellers === 1 ? "{n} traveller" : "{n} travellers", { n: sel.travellers }),
+      addons: sel.addons.map((a) => a.label.toLowerCase()).join(", "),
+      total: formatPrice(q.total),
+    };
+    summary.textContent = fill(sel.addons.length ? "{months} in {place} for {travellers} with {addons}: {total} in total." : "{months} in {place} for {travellers}: {total} in total.", values);
   }
   document.addEventListener("sabbatical:quote", updateSummary);
   updateSummary();
@@ -264,7 +270,7 @@ function inquirySection(pkg, getSelection) {
     } catch {
       /* storage unavailable; the confirmation still shows */
     }
-    notice.textContent = `Thanks, ${name}. Your inquiry for ${pkg.name} has been received (reference ${inquiry.id}). A host will reply to ${email} within two working days.`;
+    notice.textContent = fill("Thanks, {name}. Your inquiry for {package} has been received (reference {ref}). A host will reply to {email} within two working days.", { name, package: pkg.name, ref: inquiry.id, email });
     notice.hidden = false;
     form.hidden = true;
     notice.scrollIntoView({ behavior: "smooth", block: "center" });
