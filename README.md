@@ -20,6 +20,14 @@ npm test         # runs the pricing and catalog tests with node:test
 Any static file server works; there is nothing to build and no `npm install`.
 Node 20 or newer is needed for the tests.
 
+## Languages
+
+English (default) at the root, French in `fr/`, German in `de/`, Spanish in `es/`. Each language is pre-rendered: `fr/package.html` loads `src/package.fr.js`, which imports `src/data/packages.fr.js` and so on. No translation library runs in the browser, and prices are formatted for the page language.
+
+- Translations live in `i18n/{fr,de,es}.json` as `{ "English text": "translation" }`. Sentences with numbers use `{placeholders}` (see `fill()` in `src/ui.js`) so each one is translated whole.
+- After changing copy in the HTML pages or `src/`, run `node scripts/i18n.mjs check`: it rebuilds the language folders, the `*.fr.js`/`*.de.js`/`*.es.js` modules and the sitemap, and fails if a string has no translation.
+- The EN · FR · DE · ES switch sits in the header and links to the same page in the other language.
+
 ## What's in it
 
 | Path | Purpose |
@@ -30,6 +38,8 @@ Node 20 or newer is needed for the tests.
 | `src/pricing.js` | Pure pricing functions shared by the browser and the tests. |
 | `src/ui.js` | Small DOM helper and localStorage helpers for saved packages. |
 | `src/styles.css` | Shared styles with light and dark themes. |
+| `privacy.html`, `terms.html`, `cookies.html` | Privacy policy, booking terms and cookie policy (complete; have a lawyer review them before launch). |
+| `src/fonts/` | Self-hosted Fraunces and Inter (SIL OFL). |
 | `test/pricing.test.js` | Unit tests for pricing rules and catalog integrity. |
 
 ## Pricing rules
@@ -59,3 +69,13 @@ every package has a unique id, a positive price, a valid stay range, at least
 one vibe, a two-colour palette, three or more itinerary phases and valid best
 months. Set `includedAddons` to the ids of any add-ons the base price already
 covers.
+
+## Contact and business details
+
+Email: `sabbatical@tourground.com`. Business address (owner-approved coworking arrangement): Second Home Lisboa, Mercado da Ribeira, Avenida 24 de Julho 49, 1200-479 Lisboa, Portugal. Both appear in the footer, the legal pages and the JSON-LD on the home page. By owner decision the site shows no phone, WhatsApp, social links, licence numbers or testimonials.
+
+## Before launch
+
+- Wire the inquiry form to a real inbox or CRM (it only stores inquiries in the visitor's browser today).
+- Have a lawyer review the privacy policy, booking terms and cookie policy.
+- Confirm the Second Home Lisboa street number (OpenStreetMap gives 49; some listings use 50).

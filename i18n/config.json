@@ -1,0 +1,48 @@
+{
+  "out": ".",
+  "relative": true,
+  "siteUrl": "https://sabbatical.tourground.com",
+  "locales": [
+    "fr",
+    "de",
+    "es"
+  ],
+  "default": "en",
+  "ogLocale": {
+    "fr": "fr_FR",
+    "de": "de_DE",
+    "es": "es_ES"
+  },
+  "ignore": [
+    "src",
+    "test",
+    "scripts",
+    "i18n",
+    ".git",
+    ".github",
+    "README.md",
+    "package.json",
+    "vercel.json",
+    "robots.txt",
+    "sitemap.xml"
+  ],
+  "jsFiles": [
+    "src/app.js",
+    "src/package.js",
+    "src/pricing.js",
+    "src/ui.js",
+    "src/data/packages.js"
+  ],
+  "keep": [
+    "Sabbatical",
+    "sabbatical@tourground.com",
+    "EN",
+    "FR",
+    "DE",
+    "ES",
+    "English",
+    "Fran\u00e7ais",
+    "Deutsch",
+    "Espa\u00f1ol"
+  ]
+}

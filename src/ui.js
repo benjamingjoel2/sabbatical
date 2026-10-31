@@ -84,3 +84,8 @@ export function saveButton(id, saved, onChange) {
 export function vibeLabel(vibes, id) {
   return vibes.find((v) => v.id === id)?.label ?? id;
 }
+
+/** Fills {name} placeholders, so each sentence is one translatable string. */
+export function fill(template, values) {
+  return template.replace(/\{(\w+)\}/g, (m, k) => (k in values ? String(values[k]) : m));
+}

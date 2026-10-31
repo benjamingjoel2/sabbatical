@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sabbatical</title>
+  <meta name="description" content="Des séjours longue durée pour ceux qui partent d’un à six mois. Logements meublés, hôtes locaux et tout est prêt avant votre arrivée.">
+  <link rel="preload" href="../src/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../src/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="modulepreload" href="../src/app.fr.js">
+  <link rel="modulepreload" href="../src/data/packages.fr.js">
+  <link rel="modulepreload" href="../src/pricing.fr.js">
+  <link rel="modulepreload" href="../src/ui.fr.js">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23c2683f%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../src/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TravelAgency","name":"Sabbatical","email":"sabbatical@tourground.com","address":{"@type":"PostalAddress","streetAddress":"Second Home Lisboa, Mercado da Ribeira, Avenida 24 de Julho 49","postalCode":"1200-479","addressLocality":"Lisboa","addressCountry":"PT"}}</script>
+<link rel="canonical" href="https://sabbatical.tourground.com/fr/">
+<link rel="alternate" hreflang="en" href="https://sabbatical.tourground.com/">
+<link rel="alternate" hreflang="fr" href="https://sabbatical.tourground.com/fr/">
+<link rel="alternate" hreflang="de" href="https://sabbatical.tourground.com/de/">
+<link rel="alternate" hreflang="es" href="https://sabbatical.tourground.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://sabbatical.tourground.com/">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Sabbatical</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="#how">Comment ça marche</a>
+        <a href="#packages">Séjours</a>
+        <a href="#packages" id="saved-link">Favoris<span class="saved-count" id="saved-count" hidden>0</span></a>
+      </nav>
+      <nav class="lang-switch lang-switch--bar" aria-label="Langue"><a class="lang-switch__link" href="../index.html" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="lang-switch__sr">English</span></a><span class="lang-switch__sep" aria-hidden="true">·</span><a class="lang-switch__link" href="index.html" hreflang="fr" lang="fr" aria-current="true"><span aria-hidden="true">FR</span><span class="lang-switch__sr">Français</span></a><span class="lang-switch__sep" aria-hidden="true">·</span><a class="lang-switch__link" href="../de/index.html" hreflang="de" lang="de"><span aria-hidden="true">DE</span><span class="lang-switch__sr">Deutsch</span></a><span class="lang-switch__sep" aria-hidden="true">·</span><a class="lang-switch__link" href="../es/index.html" hreflang="es" lang="es"><span aria-hidden="true">ES</span><span class="lang-switch__sr">Español</span></a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Séjours longue durée</span>
+          <h1>Prenez ces mois que vous repoussez depuis longtemps.</h1>
+          <p class="lede">Un logement meublé, un hôte sur place et l’intendance déjà réglée : carte SIM, transports, un bureau qui fonctionne. Restez un mois ou six, dans neuf lieux que nous connaissons bien.</p>
+          <div class="hero-actions">
+            <a class="btn btn-accent" href="#packages">Voir les séjours</a>
+            <a class="btn btn-ghost" href="#how">Comment ça marche</a>
+          </div>
+        </div>
+        <div class="hero-stats" aria-label="En bref">
+          <div class="stat"><strong id="stat-count">9</strong><span>destinations</span></div>
+          <div class="stat"><strong>1 à 6</strong><span>mois par séjour</span></div>
+          <div class="stat"><strong>18%</strong><span>de remise sur les séjours de six mois</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Comment ça marche</h2>
+          <p>Trois étapes, puis vous faites vos valises.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>Choisissez un lieu et une durée</h3>
+            <p>Chaque séjour comprend un logement défini, un hôte et des prestations incluses. Choisissez d’un à six mois et voyez le prix évoluer au fil de vos choix.</p>
+          </li>
+          <li>
+            <h3>Envoyer une demande</h3>
+            <p>Dites-nous quand vous aimeriez arriver et qui vous accompagne. Un hôte répond sous deux jours ouvrés pour confirmer les dates et répondre à vos questions.</p>
+          </li>
+          <li>
+            <h3>Arrivez et installez-vous</h3>
+            <p>Accueil à l’aéroport, remise des clés, cuisine approvisionnée et tour du quartier la première semaine. Le reste du séjour vous appartient.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="catalog" id="packages">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Séjours</h2>
+          <p>Prix par personne et par mois, avant remise longue durée.</p>
+        </div>
+
+        <form class="filters" id="filters" role="search" aria-label="Filtrer les séjours">
+          <div class="field">
+            <label for="q">Rechercher</label>
+            <input type="search" id="q" name="q" placeholder="Ville, pays ou mot-clé" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="region">Région</label>
+            <select id="region" name="region">
+              <option value="">Partout</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="months">Durée du séjour</label>
+            <select id="months" name="months">
+              <option value="">Toutes durées</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">Maximum par mois <output for="budget" id="budget-out"></output></label>
+            <input type="range" id="budget" name="budget" min="1000" max="4500" step="100" value="4500">
+          </div>
+          <div class="field">
+            <label for="sort">Trier</label>
+            <select id="sort" name="sort">
+              <option value="featured">Notre sélection</option>
+              <option value="price-asc">Prix croissant</option>
+              <option value="price-desc">Prix décroissant</option>
+              <option value="name">Nom</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="chips" id="vibes" role="group" aria-label="Filtrer par ambiance"></div>
+
+        <div class="results-meta">
+          <span id="results-count" aria-live="polite"></span>
+          <button type="button" id="clear-filters">Effacer les filtres</button>
+        </div>
+
+        <div class="grid" id="results"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>Sabbatical. De longs séjours, bien accueillis.</span>
+      <span>Prix en euros. Les demandes sont gratuites et sans engagement.</span>
+    </div>
+    <div class="wrap site-footer__meta">
+      <span>Second Home Lisboa, Mercado da Ribeira, Avenida 24 de Julho 49, 1200-479 Lisboa, Portugal · <a href="mailto:sabbatical@tourground.com">sabbatical@tourground.com</a></span>
+      <nav class="site-footer__legal" aria-label="Mentions légales"><a href="privacy.html">Politique de confidentialité</a><a href="terms.html">Conditions de réservation</a><a href="cookies.html">Politique relative aux cookies</a></nav>
+    </div>
+  </footer>
+
+  <script type="module" src="../src/app.fr.js"></script>
+</body>
+</html>

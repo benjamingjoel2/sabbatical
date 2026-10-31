@@ -1,6 +1,6 @@
 import { PACKAGES, REGIONS, VIBES, DURATIONS } from "./data/packages.js";
 import { fromPrice, formatPrice } from "./pricing.js";
-import { el, loadSaved, saveButton, updateSavedBadge, vibeLabel } from "./ui.js";
+import { el, fill, loadSaved, saveButton, updateSavedBadge, vibeLabel } from "./ui.js";
 
 const form = document.getElementById("filters");
 const results = document.getElementById("results");
@@ -100,11 +100,11 @@ function card(pkg, saved) {
       el("p", { class: "card-tagline", text: pkg.tagline }),
       el("div", { class: "card-foot" }, [
         el("div", { class: "price" }, [
-          formatPrice(pkg.pricePerMonth),
+          `From ${formatPrice(pkg.pricePerMonth)}`,
           el("small", {
             text:
               pkg.maxMonths > 1
-                ? `per month, from ${formatPrice(fromPrice(pkg))} on ${pkg.maxMonths}-month stays`
+                ? fill("per month, or from {price} on {n}-month stays", { price: formatPrice(fromPrice(pkg)), n: pkg.maxMonths })
                 : "per month",
           }),
         ]),
@@ -131,10 +131,10 @@ function render() {
           ]),
         ]),
   );
-  const noun = list.length === 1 ? "package" : "packages";
+  const one = list.length === 1;
   resultsCount.textContent = state.savedOnly
-    ? `${list.length} saved ${noun}`
-    : `${list.length} of ${PACKAGES.length} ${noun}`;
+    ? fill(one ? "{n} saved package" : "{n} saved packages", { n: list.length })
+    : fill(one ? "{n} of {total} package" : "{n} of {total} packages", { n: list.length, total: PACKAGES.length });
 }
 
 function readForm() {
