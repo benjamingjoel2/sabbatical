@@ -26,6 +26,7 @@ English (default) at the root, French in `fr/`, German in `de/`, Spanish in `es/
 
 - Translations live in `i18n/{fr,de,es}.json` as `{ "English text": "translation" }`. Sentences with numbers use `{placeholders}` (see `fill()` in `src/ui.js`) so each one is translated whole.
 - After changing copy in the HTML pages or `src/`, run `node scripts/i18n.mjs check`: it rebuilds the language folders, the `*.fr.js`/`*.de.js`/`*.es.js` modules and the sitemap, and fails if a string has no translation.
+- The Privacy policy, Booking terms and Cookie policy are written in full in every language in `i18n/legal.json`. After `scripts/i18n.mjs`, run `node scripts/legal-i18n.mjs` to put that text into the English, French, German and Spanish legal pages.
 - The EN · FR · DE · ES switch sits in the header and links to the same page in the other language.
 
 ## What's in it

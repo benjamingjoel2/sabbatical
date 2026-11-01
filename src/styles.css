@@ -1349,6 +1349,8 @@ textarea {
 .legal__body a { color: inherit; }
 .legal-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: .95rem; }
 .legal-table th, .legal-table td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
+.legal-table table { width: 100%; border-collapse: collapse; }
+@media (max-width: 640px) { .legal-table table { display: block; } }
 @media (max-width: 640px) { .legal-table, .legal-table tbody, .legal-table tr, .legal-table td { display: block; } .legal-table thead { display: none; } .legal-table td { border: 0; padding: 2px 0; } .legal-table tr { border-bottom: 1px solid var(--line); padding: 10px 0; } }
 
 /* Language switch (markup inserted by scripts/i18n.mjs) */
