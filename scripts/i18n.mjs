@@ -12,6 +12,8 @@
 // descriptions and share text, and string literals in the JavaScript files listed in config.
 // Internal links are pointed at the same page in the same language; a language selector
 // replaces each <!--i18n:selector--> marker; hreflang alternates and a canonical are added.
+// Anything between <!--i18n:off--> and <!--i18n:on--> is copied untouched (used for the legal
+// texts, which are written in every language in i18n/legal.json; see scripts/legal-i18n.mjs).
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync, rmSync, copyFileSync } from 'node:fs';
 import { join, dirname, relative, extname, posix } from 'node:path';
@@ -66,9 +68,12 @@ function htmlPass(src, ctx) {
   const re = /<!--[\s\S]*?-->|<script\b[^>]*>[\s\S]*?<\/script\s*>|<style\b[^>]*>[\s\S]*?<\/style\s*>|<[a-zA-Z!/][^>]*>|[^<]+|</g;
   let out = '';
   let m;
+  let off = false; // between <!--i18n:off--> and <!--i18n:on-->: copied as is (text written per language elsewhere)
   while ((m = re.exec(src))) {
     const tok = m[0];
-    if (tok.startsWith('<!--')) { out += tok; continue; }
+    if (tok === '<!--i18n:off-->') off = true;
+    else if (tok === '<!--i18n:on-->') off = false;
+    if (off || tok.startsWith('<!--')) { out += tok; continue; }
     if (/^<script\b/i.test(tok)) {
       const open = tok.match(/^<script\b[^>]*>/i)[0];
       const body = tok.slice(open.length, tok.length - tok.match(/<\/script\s*>$/i)[0].length);
