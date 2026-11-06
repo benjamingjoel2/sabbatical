@@ -721,24 +721,30 @@ textarea {
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 4px 22px;
   margin-bottom: 24px;
 }
 
 .chip {
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--bg-raised);
+  padding: 6px 0;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  background: none;
   color: var(--ink-soft);
-  font-size: 0.9rem;
+  font: inherit;
+  font-size: 0.95rem;
   cursor: pointer;
 }
 
+.chip:hover {
+  color: var(--ink);
+}
+
 .chip[aria-pressed="true"] {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--bg);
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom-color: var(--accent);
 }
 
 .results-meta {
